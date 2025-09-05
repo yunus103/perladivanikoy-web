@@ -14,16 +14,16 @@
             font-family: 'Inter', sans-serif;
             margin: 0;
             padding: 0;
+            padding-top: 1rem;
             overflow: hidden; /* Dikey kaydırmayı engelle */
             touch-action: pan-x; /* Dikey dokunma hareketlerini engelle */
             display: flex;
-            align-items: center;
+            align-items: start;
             justify-content: center;
             height: 100vh;
             overflow-y: hidden;
         }
         .scroll-wrapper {
-            padding-top: -10%;
             width: 90vw;
             height: 90vh;
             border-radius: 1rem;
@@ -92,7 +92,7 @@
         }
     </style>
 </head>
-<body class="bg-gray-100 flex items-center justify-center">
+<body class="bg-gray-100 flex justify-center">
 
     <div class="scroll-wrapper">
         <div class="scroll-container" id="menu-container">
