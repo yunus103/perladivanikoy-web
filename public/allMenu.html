@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perla di Vanıköy</title>
+    <link rel="icon" href="icon.png" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-100 flex justify-center">
+
+    <div class="scroll-wrapper">
+        <div class="scroll-container" id="menu-container">
+            <!-- Kahvalti -->
+            <div class="menu-item">
+                <img src="kahvalti/perla.png" alt="Ana Yemekler">
+                <div class="image-overlay">
+                    
+                </div>
+            </div>
+            
+            <!-- Yemekler -->
+            <div class="menu-item">
+                <img src="yemekler/baslangic.jpg" alt="Ana Yemekler">
+                <div class="image-overlay">
+                    
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="yemekler/makarna.jpg" alt="Burger ve Sandviçler">
+                <div class="image-overlay">
+                    
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="yemekler/pizza.jpg" alt="Çorbalar">
+                <div class="image-overlay">
+                    
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="yemekler/ara.jpg" alt="Salatalar">
+                <div class="image-overlay">
+                    
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="yemekler/salata.jpg" alt="Tatlılar">
+                <div class="image-overlay">
+                    
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="yemekler/ana.jpg" alt="İçecekler">
+                <div class="image-overlay">
+                    
+                </div>
+            </div>
+             <div class="menu-item">
+                <img src="yemekler/tatli.jpg" alt="İçecekler">
+                <div class="image-overlay">
+        
+                </div>
+            </div>
+
+            <!-- Alkollu Icecekler -->
+             <div class="menu-item">
+                <img src="alkollu/kokteyl.jpg" class="alkollu" alt="kokteyl" style="object-fit: cover; ">
+                <div class="image-overlay">
+                    
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="alkollu/viski.jpg" class="alkollu" alt="viski" style="object-fit: contain; transform: scale(1.45) translateY(-2.5%); ">
+                <div class="image-overlay">
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="alkollu/wine.jpg" class="alkollu" alt="wine">
+                <div class="image-overlay">
+                    
+                </div>
+            </div>
+
+            <!-- Alkolsuz Icecekler -->
+             <div class="menu-item">
+                <img src="alkolsuz/alkolsuz.jpg" alt="Ana Yemekler" style="object-fit: contain; transform: scale(1.2);">
+                <div class="image-overlay">
+                    
+                </div>
+            </div>
+        </div>
+        <div class="dots-container" id="dots-container"></div>
+    </div>
+
+    <script>
+        const scrollContainer = document.getElementById('menu-container');
+        const dotsContainer = document.getElementById('dots-container');
+        const menuItems = document.querySelectorAll('.menu-item');
+
+        // Sayfa sayısı kadar nokta oluştur
+        for (let i = 0; i < menuItems.length; i++) {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            dotsContainer.appendChild(dot);
+        }
+
+        const dots = document.querySelectorAll('.dot');
+
+        // Noktaları senkronize etme
+        scrollContainer.addEventListener('scroll', () => {
+            // Mevcut menü öğesinin indeksini hesapla
+            const scrollLeft = scrollContainer.scrollLeft;
+            const itemWidth = scrollContainer.clientWidth;
+            const currentIndex = Math.round(scrollLeft / itemWidth);
+
+            // Aktif noktayı güncelle
+            dots.forEach((dot, index) => {
+                if (index === currentIndex) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        });
+
+        // Sayfa yüklendiğinde ilk noktayı aktif yap
+        window.onload = () => {
+            if (dots.length > 0) {
+                dots[0].classList.add('active');
+            }
+        };
+        
+    </script>
+</body>
+</html>
